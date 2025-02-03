@@ -1,4 +1,4 @@
-# Obsidian Previous Daily Note
+# Previous Daily Note
 
 ![GitHub release](https://img.shields.io/github/v/release/talau/obsidian-previous-daily-note)
 
