@@ -22,7 +22,7 @@ import { openPreviousDailyNote } from "./previous_daily";
 export function getCmdOpenPreviousDailyNote(plugin: Plugin) {
     const cmd = {
         id: "open-previous",
-        name: "Open Previous",
+        name: "Open previous",
         callback: () => {
             openPreviousDailyNote(plugin);
         },
