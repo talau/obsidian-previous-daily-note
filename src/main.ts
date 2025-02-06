@@ -20,13 +20,18 @@ import { appHasDailyNotesPluginLoaded } from "obsidian-daily-notes-interface";
 
 import { getCmdOpenPreviousDailyNote } from "./plugin_commands";
 import { PluginRibbon } from "./plugin_ribbon";
-import { loadSettings, PluginSettings, PreviousDailyNoteSettingTab } from "./plugin_settings";
 
 export default class PreviousDailyNote extends Plugin {
-    settings: PluginSettings;
     ribbon: PluginRibbon;
 
     async onload() {
+        /*
+         * For the configuration [1] to work as expected, the ribbon creation must
+         * be outside of "app.workspace.onLayoutReady()".
+         * [1] "Options -> Appearence -> Interface, Ribbon menu configuration".
+         */
+        this.ribbon = new PluginRibbon(this);
+
         /*
          Ensure that all plugins are loaded.
            https://forum.obsidian.md/t/how-to-access-other-plugins-as-dependencies/14469/2
@@ -35,16 +40,12 @@ export default class PreviousDailyNote extends Plugin {
         this.app.workspace.onLayoutReady( () => {
             if (! appHasDailyNotesPluginLoaded()) {
                 new Notice("You need to enable Daily Notes plugin to use 'Previous Daily Note'");
+                this.ribbon.hideRibbonIcon();
+
                 return;
             }
 
-            loadSettings(this);
-            this.addSettingTab(new PreviousDailyNoteSettingTab(this.app, this));
             this.addCommand(getCmdOpenPreviousDailyNote(this));
         });
-    }
-
-    async saveSettings() {
-        await this.saveData(this.settings);
     }
 }

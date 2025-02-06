@@ -15,8 +15,6 @@
  * along with this program.  If not, see <http:www.gnu.org/licenses/>.
  */
 
-import { Notice, Platform } from "obsidian";
-
 import PreviousDailyNote from "./main";
 import { openPreviousDailyNote } from "./previous_daily"
 
@@ -30,27 +28,17 @@ export class PluginRibbon {
     }
 
     load() {
-        if (this.plugin.settings.showRibbonIcon)
-            this.addRibbonIcon();
+        this.addRibbonIcon();
     }
 
     addRibbonIcon() {
         this.ribbonIcon = this.plugin.addRibbonIcon("calendar-minus", "Open previous daily note", () => {
             openPreviousDailyNote(this.plugin);
         });
-    }
-
-    showRibbonIcon() {
-        if (! this.ribbonIcon)
-            this.addRibbonIcon();
-        else
-            this.ribbonIcon.show();
+        this.ribbonIcon.addClass("previous-daily-note");
     }
 
     hideRibbonIcon() {
-        if (Platform.isMobile)
-            new Notice("On mobile you need to restart Obsidian to this action take effect.");
-
         this.ribbonIcon.hide();
     }
 }
