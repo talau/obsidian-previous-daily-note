@@ -33,10 +33,10 @@ export default class PreviousDailyNote extends Plugin {
         this.ribbon = new PluginRibbon(this);
 
         /*
-         Ensure that all plugins are loaded.
-           https://forum.obsidian.md/t/how-to-access-other-plugins-as-dependencies/14469/2
-           Thanks to pjeby
-        */
+         * Ensure that all plugins are loaded.
+         *  https://forum.obsidian.md/t/how-to-access-other-plugins-as-dependencies/14469/2
+         *  Thanks to pjeby
+         */
         this.app.workspace.onLayoutReady( () => {
             if (! appHasDailyNotesPluginLoaded()) {
                 new Notice("You need to enable Daily Notes plugin to use 'Previous Daily Note'");
