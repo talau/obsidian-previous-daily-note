@@ -1,7 +1,7 @@
 {
     "id": "previous-daily-note",
     "name": "Previous Daily Note",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "minAppVersion": "0.15.0",
     "description": "Open the previous daily note. Unlike the \"Daily notes\" command \"Open previous daily note\", it opens the previous daily note starting from today, rather than the daily note currently open.",
     "author": "Marcos Talau",
