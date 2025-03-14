@@ -9,9 +9,9 @@
 This is a [Obsidian](https://obsidian.md) plugin that opens the previous daily note. Unlike the \"Daily notes\" command \"Open previous daily note\", it opens the previous daily note starting from today, rather than the daily note currently open. It also provides a ribbon icon and a command to perform this action.
 
 # Install
-I already submitted the plugin to [Obsidian Community plugins](https://obsidian.md/plugins) but I'm still waiting for approval. For now you can install it manually.
+It is available in the [Obsidian Community plugins](https://obsidian.md/plugins), so you can install it from the Obsidian settings.
 
-Steps to manually install:
+Installing from Obsidian is recommended, but if you want, it can also be installed manually. Steps:
 
 1. Download the files main.js and manifest.json from [here](https://github.com/talau/obsidian-previous-daily-note/releases).
 2. In your Obsidian vault create a directory ".obsidian/plugins/obsidian-previous-daily-note".
